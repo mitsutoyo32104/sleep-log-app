@@ -1,0 +1,31 @@
+<?php
+namespace repositories;
+
+use models\UserModel;
+
+class UserRepository {
+ 
+  static function fetchByName(string $name) {
+    $db = new Database;
+    $sql = 'SELECT * FROM mst_users WHERE name = :name';
+
+    $result = $db->selectOne($sql, [
+      ':name' => $name
+    ], Database::CLS, UserModel::class);
+    
+    return $result;
+  }
+
+  static function insert(string $name, string $password, string $nickname) {
+      $db = new Database;
+      $sql = "INSERT INTO mst_users(name, password, nickname) VALUE (:name, :password, :nickname)";
+
+      $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    
+      return $db->execute($sql, [
+        ':name' => $name,
+        ':password' => $hashed_password,
+        ':nickname' => $nickname
+      ]);
+  }
+}

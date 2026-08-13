@@ -1,6 +1,6 @@
 <h1>Sign Up</h1>
 
-<form class="form" action="<?php echo CONTEXT_PATH . 'login';  ?>" method="POST">
+<form class="form" action="<?php echo CONTEXT_PATH . 'register';  ?>" method="POST">
   <div>
     <label for="name">名前：</label>
     <input type="text" id="name" name="name" tabindex="1" autofocus required>

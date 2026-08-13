@@ -1,16 +1,21 @@
 <?php
-// EntryPoint
+/**
+ * index.php = EntryPoint
+ */
+require_once './env.php';
+
 require_once './config.php';
 
 // Libraries
 require_once BASE_DIR . 'libs/helper.php';
+require_once BASE_DIR . 'libs/Auth.php';
 
 // Models
-require_once BASE_DIR . 'models/user.model.php';
+require_once BASE_DIR . 'models/UserModel.php';
 
 // Repositories
-require_once BASE_DIR . 'repositories/database.php';
-require_once BASE_DIR . 'repositories/user.repository.php';
+require_once BASE_DIR . 'repositories/Database.php';
+require_once BASE_DIR . 'repositories/UserRepository.php';
 
 session_start();
 

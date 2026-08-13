@@ -1,4 +1,5 @@
 # ER図
+後でER図作成ソフトで図式化する。
 
 ## 第1正規形
 | user_id | user_name | password | nickname | 
@@ -65,10 +66,11 @@
 |   PK    |   FK    |
 
 
-### mst.elimination テーブル(1~5)
+### mst.elimination テーブル(1~5)：便記録テーブル
 | elimination_id | user_id |  stool_count | stool_consistency | 
 | INT            |   INT   |   INT        |    INT            |
 |   PK           |   FK    |
 
-### 各テーブル追加項目：排泄記録テーブル
+
+## 各テーブル追加エンティティ
 |updated_at | updated_by | created_at | created_by | del_flg |
