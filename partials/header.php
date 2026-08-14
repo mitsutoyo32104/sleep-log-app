@@ -12,3 +12,8 @@
   <img class="icon" src="<?php echo CONTEXT_PATH . 'imgs/icon.svg' ?>" alt="">
   <h1>SLEEP & CBY LOG</h1>
 </header>
+
+<?php 
+use libs\Message; 
+Message::flashMessage();
+?>

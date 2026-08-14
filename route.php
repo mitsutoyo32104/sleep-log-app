@@ -8,7 +8,7 @@ $http_method = strtolower($_SERVER['REQUEST_METHOD']);
 // controllerの実行、ファイルが存在しないなら404に飛ばす
 function route(string $request_end_path, string $http_method) {
   if($request_end_path === '') {
-  $request_end_path = 'dashboard';
+    $request_end_path = 'top';
   }
 
   $controller_file = BASE_DIR . "controllers/{$request_end_path}.php";

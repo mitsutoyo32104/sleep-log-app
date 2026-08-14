@@ -11,7 +11,7 @@ class UserRepository {
 
     $result = $db->selectOne($sql, [
       ':name' => $name
-    ], Database::CLS, UserModel::class);
+    ], Database::FETCH_MODE, UserModel::class);
     
     return $result;
   }

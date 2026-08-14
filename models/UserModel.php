@@ -1,7 +1,10 @@
 <?php
 namespace models;
 
-class UserModel {
+use models\SessionModel;
+
+class UserModel extends SessionModel {
+
   public string $id;
   public string $name;
   public string $password;
@@ -11,4 +14,6 @@ class UserModel {
   public string $updated_at;
   public string $updated_by;
   public int $del_flg;
+
+  protected static ?string $session_name = '_user';
 }

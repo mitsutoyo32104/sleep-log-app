@@ -1,6 +1,5 @@
 # 環境変数・DB接続情報
 config.php
-database.php
 env.php
 
 # SQL

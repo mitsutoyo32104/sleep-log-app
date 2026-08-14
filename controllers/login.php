@@ -2,22 +2,29 @@
 namespace controllers\login;
 
 use libs\Auth;
+use models\UserModel;
 
 function get() {
+  $user = UserModel::getSession();
+
+  if(isset($user)) {
+    redirect('dashboard');
+  }
+
   require_once BASE_DIR . 'views/login.php';
 }
 
 function post() {
   // key確認
-  $name = get_param('name');
-  $password = get_param('password');
+  $user = new UserModel;
+  $user->name = getParam('name');
+  $user->password = getParam('password');
 
-  $result = Auth::login($name, $password);
+  $result = Auth::login($user);
 
   if($result) {
-    echo '認証成功。';
-    return;
+    redirect('dashboard');
+  } else {
+    redirect('referer');
   }
-
-  echo '認証失敗。';
 }

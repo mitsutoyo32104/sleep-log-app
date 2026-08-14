@@ -14,3 +14,6 @@
     <input type="text" id="nickname" name="nickname" tabindex="3" required>
   </div>
   <input type="submit" value="新規登録">
+</form>
+
+<a href="<?php echo CONTEXT_PATH . 'login'?>">ログインはこちら</a>

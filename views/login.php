@@ -1,5 +1,4 @@
 <h1>Sign In</h1>
-
 <form class="form" action="<?php echo $_SERVER['REQUEST_URI'];  ?>" method="POST">
   <div>
     <label for="name">名前：</label>

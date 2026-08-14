@@ -2,19 +2,24 @@
 namespace controllers\register;
 
 use libs\auth;
+use models\UserModel;
 
 function get() {
   require_once BASE_DIR . 'views/register.php';
 }
 
 function post() {
-  $name = get_param('name');
-  $password = get_param('password');
-  $nickname = get_param('nickname');
+  $user = new UserModel;
 
-  if(Auth::regist($name, $password, $nickname)) {
+  $user->name = getParam('name');
+  $user->password = getParam('password');
+  $user->nickname = getParam('nickname');
+
+  if(Auth::regist($user)) {
     echo 'ユーザー登録に成功しました';
+    redirect('dashboard');
   } else {
     echo 'ユーザー登録に失敗しました。';
+    redirect('referer');
   }
 }

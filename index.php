@@ -11,6 +11,8 @@ require_once BASE_DIR . 'libs/helper.php';
 require_once BASE_DIR . 'libs/Auth.php';
 
 // Models
+require_once BASE_DIR . 'models/SessionModel.php';
+require_once BASE_DIR . 'libs/Message.php';
 require_once BASE_DIR . 'models/UserModel.php';
 
 // Repositories
