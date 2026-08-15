@@ -5,8 +5,8 @@ use PDO;
 
 // あとでSingletone Pattern実装
 class Database {
-  private $con;
-  private $sqlResult;
+  private PDO $con;
+  private bool $sqlResult;
     
   public const FETCH_MODE = "This is a flag to fetch data as a model object.";
 

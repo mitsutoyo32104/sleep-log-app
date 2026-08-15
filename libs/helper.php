@@ -7,9 +7,10 @@ function getParam(string $key, string $default_val = '', bool $is_post = true) {
 function redirect(string $path) {
   if($path === 'referer') {
     $path = $_SERVER['HTTP_REFERER'];
+  } else {
+    $path = getUrl($path);
   }
 
-  $path = getUrl($path);
   header("Location: {$path}");
   die();
 }

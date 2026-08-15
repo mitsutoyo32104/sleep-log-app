@@ -15,15 +15,16 @@ class Auth {
     if(!empty($exist_user) && $exist_user->del_flg !== 1) {
 
       if(password_verify($user->password, $exist_user->password)) {
-
         $is_success = true;
         UserModel::setSession($user);
-
-      } else {
-         Message::pushMessage(Message::INFO_MESSAGE, 'ログインに成功しました。');
+        Message::pushMessage(Message::ERROR_MESSAGE, 'ログインに成功しました。');  
+      } 
+      else {
+        Message::pushMessage(Message::ERROR_MESSAGE, 'ログインに失敗しました。');  
       }
+
     } else {
-      echo 'ユーザーが見つかりません。もう一度ご確認ください。';
+      Message::pushMessage(Message::INFO_MESSAGE, 'ユーザーが存在しません。');
     }
 
     return $is_success;

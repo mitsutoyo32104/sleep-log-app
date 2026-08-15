@@ -6,6 +6,8 @@ require_once './env.php';
 
 require_once './config.php';
 
+session_start();
+
 // Libraries
 require_once BASE_DIR . 'libs/helper.php';
 require_once BASE_DIR . 'libs/Auth.php';
@@ -18,8 +20,6 @@ require_once BASE_DIR . 'models/UserModel.php';
 // Repositories
 require_once BASE_DIR . 'repositories/Database.php';
 require_once BASE_DIR . 'repositories/UserRepository.php';
-
-session_start();
 
 // Header
 require_once BASE_DIR . 'partials/header.php';

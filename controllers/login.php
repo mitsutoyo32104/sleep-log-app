@@ -3,6 +3,7 @@ namespace controllers\login;
 
 use libs\Auth;
 use models\UserModel;
+use libs\Message; 
 
 function get() {
   $user = UserModel::getSession();

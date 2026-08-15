@@ -18,7 +18,6 @@ class Message extends SessionModel {
 
     $messages = static::getSession();
     $messages[$type][] = $one_message;
-
     static::setSession($messages);
   }
 
@@ -27,7 +26,7 @@ class Message extends SessionModel {
 
     foreach($typed_messages as $type => $messages) {
       foreach($messages as $one_message) {
-          echo "<div class='{$type}'>$one_message</div>";
+          echo "<div class='{$type}'>{$one_message}</div>";
       }
     }
   }
