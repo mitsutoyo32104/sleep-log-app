@@ -28,4 +28,16 @@ class UserRepository {
         ':nickname' => $nickname
       ]);
   }
+
+  static function edit(int $id, string $name, string $password, string $nickname) {
+    $db = new Database;
+    $sql = "UPDATE mst_users SET name = :name, password = :password, nickname = :nickname WHERE id = :id";
+
+    return $db->execute($sql, [
+      ':id' => $id,
+      ':name' => $name,
+      ':password' => $password,
+      ':nickname' => $nickname
+    ]);
+  }
 }

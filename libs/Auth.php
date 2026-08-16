@@ -39,6 +39,7 @@ class Auth {
       echo '同じ名前のユーザーが既に存在します。';
       return;
     } else {
+      $user->password = password_hash($user->password, PASSWORD_DEFAULT);
 
       if(UserRepository::insert($user->name, $user->password, $user->nickname)) {
         $is_success = true;
@@ -48,6 +49,34 @@ class Auth {
       };
     }
     
+    return $is_success;
+  }
+
+  public static function edit(UserModel $user) {
+    $is_success = false;
+    $exist_user = UserRepository::fetchByName($user->name);
+
+    if(!empty($exist_user)) {
+      echo '同じ名前のユーザーが既に存在します。';
+      return;
+    } 
+    else {
+      $session_user = UserModel::getSession();
+      $now_user = UserRepository::fetchByName($session_user->name);
+      
+      $user->id = $now_user->id;
+      $user->password = password_hash($user->password, PASSWORD_DEFAULT);
+    }
+
+    $is_success = UserRepository::edit($user->id, $user->name, $user->password, $user->nickname);
+
+    if($is_success) {
+      Message::pushMessage(Message::ERROR_MESSAGE, 'ユーザー情報編集に成功しました。');
+      UserModel::setSession($user);
+    } else {
+      Message::pushMessage(Message::ERROR_MESSAGE, 'ユーザー情報編集に失敗しました。');
+    };
+
     return $is_success;
   }
 

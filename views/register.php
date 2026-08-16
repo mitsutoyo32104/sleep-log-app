@@ -13,7 +13,7 @@
     <label for="nickname">ニックネーム：</label>
     <input type="text" id="nickname" name="nickname" tabindex="3" required>
   </div>
-  <input type="submit" value="新規登録">
+  <button type="submit">新規登録する</button>
 </form>
 
 <a href="<?php echo CONTEXT_PATH . 'login'?>">ログインはこちら</a>

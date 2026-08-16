@@ -1,4 +1,4 @@
-<h1>Sign In</h1>
+<h1>プロフィール編集ページ</h1>
 <form class="form" action="<?php echo $_SERVER['REQUEST_URI'];  ?>" method="POST">
   <div>
     <label for="name">名前：</label>
@@ -8,6 +8,10 @@
     <label for="password">password: </label>
     <input type="password" id="password" name="password" tabindex="2" required>
   </div>
-  <button type="submit">ログイン</button>
+  <div>
+    <label for="nickname">nickname: </label>
+    <input type="text" id="nickname" name="nickname" tabindex="3" required>
+  </div>
+  <button type="submit">編集を確定</button>
 </form>
-<a href="<?php echo CONTEXT_PATH . 'register' ?>">新規登録はこちら</a>
+<a href="<?php echo CONTEXT_PATH . 'dashboard'; ?>">ダッシュボードへ戻る</a>

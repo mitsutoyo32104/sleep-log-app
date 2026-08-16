@@ -14,6 +14,13 @@
 </header>
 
 <?php 
-use libs\Message; 
+use libs\Message;
+use models\UserModel;
+
 Message::flashMessage();
+$session_user = UserModel::getSession();
+
+if(isset($session_user)) {
+  echo "ようこそ{$session_user->nickname}さん";
+}
 ?>

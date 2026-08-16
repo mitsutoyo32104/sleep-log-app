@@ -5,7 +5,7 @@ use models\SessionModel;
 
 class UserModel extends SessionModel {
 
-  public string $id;
+  public int $id;
   public string $name;
   public string $password;
   public string $nickname;

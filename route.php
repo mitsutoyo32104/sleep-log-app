@@ -1,8 +1,20 @@
 <?php
+/*
+後で機能ごとにController分ける
+$routes = [
+    'GET'  => [
+        '/login'    => ['AuthController', 'showLoginForm'],
+        '/register' => ['AuthController', 'showRegisterForm'],
+    ],
+    'POST' => [
+        '/login'    => ['AuthController', 'login'],
+        '/register' => ['AuthController', 'register'],
+    ],
+];
+*/
+
 // URIの末尾で呼び出す controller の http_method に応じた関数処理を実行
-
 $request_end_path = str_replace(CONTEXT_PATH, '', $_SERVER['REQUEST_URI']);
-
 $http_method = strtolower($_SERVER['REQUEST_METHOD']);
 
 // controllerの実行、ファイルが存在しないなら404に飛ばす
