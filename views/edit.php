@@ -15,3 +15,6 @@
   <button type="submit">編集を確定</button>
 </form>
 <a href="<?php echo CONTEXT_PATH . 'dashboard'; ?>">ダッシュボードへ戻る</a>
+
+
+<a href="<?php echo CONTEXT_PATH .'delete';?>">退会はこちら</a>

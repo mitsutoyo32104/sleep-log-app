@@ -40,4 +40,13 @@ class UserRepository {
       ':nickname' => $nickname
     ]);
   }
+
+  static function drop(string $name) {
+    $db = new Database;
+    $sql = "UPDATE mst_users SET del_flg = 1 WHERE name = :name";
+
+    return $db->execute($sql, [
+      ':name' => $name
+    ]);
+  }
 }

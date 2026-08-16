@@ -85,4 +85,9 @@ class Auth {
 
     return $user ? true : false; 
   }
+
+  public static function delete() {
+    $session_user = UserModel::getSession();
+    return UserRepository::drop($session_user->name);
+  }
 }
